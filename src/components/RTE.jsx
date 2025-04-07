@@ -11,38 +11,22 @@ export default function RTE({ name, control, label, defaultValue = "" }) {
                 control={control}
                 render={({ field: { onChange, value } }) => (
                     <Editor
-                        apiKey="8srabgbt3xytc4oihbtwrwzyic47tpbpgbsmwb2c0hqbmx96" // Your API key added
-                        value={value} // Use value from react-hook-form
-                        onEditorChange={(newValue) => onChange(newValue)} // Sync changes
-                        initialValue={defaultValue} // Set initial content
+                        tinymceScriptSrc="/tinymce/tinymce.min.js" // Tell it where to find the local script
+                        value={value}
+                        onEditorChange={onChange}
+                        initialValue={defaultValue}
                         init={{
                             height: 500,
                             menubar: true,
                             plugins: [
-                                "image",
-                                "advlist",
-                                "autolink",
-                                "lists",
-                                "link",
-                                "image", // Duplicate removed below
-                                "charmap",
-                                "preview",
-                                "anchor",
-                                "searchreplace",
-                                "visualblocks",
-                                "code",
-                                "fullscreen",
-                                "insertdatetime",
-                                "media",
-                                "table",
-                                "code", // Duplicate removed below
-                                "help",
-                                "wordcount",
-                                "anchor", // Duplicate removed below
+                                "advlist", "autolink", "lists", "link", "image", "charmap", "preview", "anchor",
+                                "searchreplace", "visualblocks", "code", "fullscreen", "insertdatetime", "media",
+                                "table", "help", "wordcount"
                             ],
                             toolbar:
                                 "undo redo | blocks | image | bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help",
-                            content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+                            content_style:
+                                "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
                         }}
                     />
                 )}
